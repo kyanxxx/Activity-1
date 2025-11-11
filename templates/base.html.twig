@@ -12,6 +12,16 @@
         {% endblock %}
     </head>
     <body>
+            {% if is_granted('ROLE_ADMIN') %}
+            <h1>You are logged in as Admin. You have full access.</h1>
+
+        {% endif %}
+            
+            {% if is_granted('ROLE_USER') %}
+            <h1>You are logged in as Regular User. Limited access granted.</h1>
+
+        {% endif %}
+
         {% block body %}{% endblock %}
     </body>
 </html>
